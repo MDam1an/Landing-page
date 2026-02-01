@@ -29,7 +29,7 @@ body {
   height: 100%;
   z-index: -1;
   pointer-events: none;
-  background-image: url('../assets/images/gradiente-fundo.png');
+  background-image: url('gradiente-hero.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -474,4 +474,5 @@ body {
   .hero-image {
     max-width: 280px;
   }
+
 }
