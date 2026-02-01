@@ -1,0 +1,477 @@
+/* ===== RESET E BASE ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #ffffff;
+  background-color: #7b7b7b;
+  position: relative;
+}
+
+/* ===== GRADIENTE DE FUNDO ===== */
+
+.background-gradient {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  background-image: url('../assets/images/gradiente-fundo.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.6;
+}
+
+/* ===== HEADER (EXATAMENTE COMO ANTES) ===== */
+.header {
+  width: 100%;
+  max-width: 1440px;
+  height: 100px;
+  background-color: #313131;
+  padding: 0 54px;
+  margin: 0 auto;
+  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  
+  transition: all 0.3s ease;
+}
+
+.header.scrolled {
+  background-color: rgba(49, 49, 49, 0.85);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+}
+
+.rz-header img {
+  width: 96px;
+  height: auto;
+}
+
+.nav {
+  display: flex;
+  gap: 65px;
+}
+
+.nav a {
+  font-family: "Poppins", sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  color: #ffffff;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.nav a:hover {
+  opacity: 0.7;
+}
+
+.cta-header {
+  padding: 10px 26px;
+  background-color: #1b1b1b;
+  border-radius: 50px;
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.cta-header:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.35);
+}
+
+.menu-mobile {
+  display: none;
+}
+
+/* ===== HERO SECTION (AJUSTADO PARA FICAR MENOR) ===== */
+.main-container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding-top: 120px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero {
+  width: 100%;
+  max-width: 1440px;
+  min-height: 80vh; /* MENOR que antes (era 100vh) */
+  margin: 0 auto;
+  padding: 40px 54px 54px; /* Padding reduzido */
+  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px; /* Gap menor */
+}
+
+.hero-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px; /* Espaçamento reduzido */
+}
+
+/* Logo Hero - menor */
+.hero-brand {
+  width: 250px; /* Reduzido de 306px */
+  height: auto;
+  margin-bottom: 10px; /* Menor margem */
+}
+
+/* Slogan - menor */
+.hero-slogan {
+  font-family: 'Poppins', sans-serif;
+  font-size: 28px; /* Reduzido de 35px */
+  font-weight: 500;
+  color: #ffffff;
+  letter-spacing: 0.15em;
+  line-height: 1.2;
+  margin-bottom: 20px; /* Reduzido */
+}
+
+/* Texto - menor */
+.hero-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 40px; /* Reduzido de 50px */
+  font-weight: 300;
+  font-style: italic;
+  color: #ffffff;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+  max-width: 800px; /* Reduzido de 1048px */
+  margin-bottom: 30px; /* Reduzido */
+}
+
+/* Botão CTA - menor mas com background branco */
+.hero-cta {
+  width: 400px; /* Reduzido de 443px */
+  height: 100px; /* Reduzido de 112px */
+  background-color: #ffffff; /* BACKGROUND BRANCO */
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-cta img {
+  width: 340px; /* Reduzido proporcionalmente */
+  height: auto;
+  object-fit: contain;
+  transition: all 0.4s ease;
+  display: block;
+}
+
+/* Efeito de brilho ao redor */
+.hero-cta::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  background: linear-gradient(45deg, 
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0.4));
+  border-radius: 12px;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background-size: 300% 300%;
+}
+
+.hero-cta:hover::before {
+  opacity: 1;
+  animation: buttonGlow 2s ease-in-out infinite;
+}
+
+@keyframes buttonGlow {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Efeito hover */
+.hero-cta:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
+}
+
+.hero-cta:hover img {
+  transform: scale(1.05);
+}
+
+/* Imagem do modelo - menor */
+.hero-image {
+  flex: 1;
+  position: relative;
+  width: 480px; /* Reduzido de 536px */
+  height: 720px; /* Reduzido de 805px */
+  border-radius: 0;
+  overflow: visible;
+  background: transparent;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.5s ease;
+  filter: drop-shadow(-20px 30px 50px rgba(0, 0, 0, 0.7));
+  transform-origin: center center;
+}
+
+/* Efeito de "afundar" na imagem */
+.hero-image:hover img {
+  transform: perspective(1000px) rotateY(3deg) rotateX(3deg) translateZ(10px);
+  filter: 
+    drop-shadow(-25px 35px 60px rgba(0, 0, 0, 0.8))
+    brightness(1.05);
+}
+
+/* ===== RESPONSIVIDADE ===== */
+
+/* Tablet */
+@media (max-width: 1200px) {
+  .hero {
+    gap: 40px;
+    padding: 40px 40px 40px;
+  }
+  
+  .hero-brand {
+    width: 220px;
+  }
+  
+  .hero-slogan {
+    font-size: 24px;
+  }
+  
+  .hero-text {
+    font-size: 34px;
+    max-width: 700px;
+  }
+  
+  .hero-cta {
+    width: 320px;
+    height: 80px;
+  }
+  
+  .hero-cta img {
+    width: 280px;
+  }
+  
+  .hero-image {
+    width: 420px;
+    height: 630px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  /* HEADER MOBILE (como antes) */
+  .header {
+    width: 100%;
+    height: 80px;
+    max-width: none;
+    padding: 0 24px;
+    margin: 0;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: none;
+    
+    background-color: #313131;
+    z-index: 1000;
+  }
+  
+  body {
+    padding-top: 80px;
+  }
+  
+  /* esconder navegação e CTA */
+  .nav,
+  .cta-header {
+    display: none;
+  }
+  
+  /* logo central */
+  .rz-header img {
+    width: 70px;
+    height: auto;
+  }
+  
+  /* botão menu */
+  .menu-mobile {
+    display: block;
+    position: absolute;
+    right: 24px;
+    background: none;
+    border: none;
+  }
+  
+  .menu-mobile img {
+    width: 24px;
+    height: 24px;
+  }
+  
+  /* HERO MOBILE - vertical e menor */
+  .main-container {
+    padding-top: 40px;
+    max-width: 100%;
+  }
+  
+  .hero {
+    flex-direction: column;
+    min-height: auto;
+    padding: 20px 24px 40px;
+    gap: 40px;
+    align-items: center;
+  }
+  
+  .hero-content {
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+  }
+  
+  .hero-brand {
+    width: 180px;
+    margin-bottom: 5px;
+  }
+  
+  .hero-slogan {
+    font-size: 20px;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  .hero-text {
+    font-size: 24px;
+    max-width: 100%;
+    margin-bottom: 25px;
+    text-align: center;
+  }
+  
+  .hero-cta {
+    width: 260px;
+    height: 65px;
+  }
+  
+  .hero-cta img {
+    width: 220px;
+  }
+  
+  .hero-image {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    aspect-ratio: 480/720;
+  }
+  
+  /* Efeitos mais suaves no mobile */
+  .hero-cta:hover {
+    transform: translateY(-3px);
+  }
+  
+  .hero-cta:hover img {
+    transform: scale(1.03);
+  }
+  
+  .hero-image:hover img {
+    transform: perspective(800px) rotateY(2deg) rotateX(2deg) translateZ(5px);
+  }
+}
+
+/* Mobile pequeno */
+@media (max-width: 375px) {
+  .header {
+    height: 70px;
+    padding: 0 16px;
+  }
+  
+  body {
+    padding-top: 70px;
+  }
+  
+  .rz-header img {
+    width: 60px;
+  }
+  
+  .menu-mobile {
+    right: 16px;
+  }
+  
+  .hero {
+    padding: 15px 16px 30px;
+    gap: 30px;
+  }
+  
+  .hero-brand {
+    width: 150px;
+  }
+  
+  .hero-slogan {
+    font-size: 18px;
+  }
+  
+  .hero-text {
+    font-size: 20px;
+  }
+  
+  .hero-cta {
+    width: 220px;
+    height: 55px;
+  }
+  
+  .hero-cta img {
+    width: 180px;
+  }
+  
+  .hero-image {
+    max-width: 280px;
+  }
+}
